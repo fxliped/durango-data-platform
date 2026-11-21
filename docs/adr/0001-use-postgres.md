@@ -1,0 +1,1 @@
+- Postgres was selected as the primary db due to easy usability, ACID compliance, and scaling
