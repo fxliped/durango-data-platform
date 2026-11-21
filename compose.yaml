@@ -1,0 +1,19 @@
+# set of instructions we give Docker to spin up services for our container
+services: 
+  db:
+    image: postgres:18 # postgres version 18, docker downloads this image/version
+    container_name: postgres-dev
+    restart: always # don't know what this does yet
+    environment: # contains username, password, etc.
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+
+    ports: 
+      - "5432:5432" # this is where docker postgres usually starts
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+
+volumes:
+  postgres_data: # saying we want the volume used from this location
